@@ -14,7 +14,7 @@ function ProductList() {
   // implement redux here
   
   const dispatch = useDispatch()
-  console.log("data", data)
+  //console.log("data", data)
   
   useEffect(() => {
     if (data){

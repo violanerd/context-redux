@@ -3,11 +3,13 @@ import { combineReducers } from '@reduxjs/toolkit'
 //import counterReducer from '../features/counter/counterSlice'
 import categorySlice from '../features/category/categorySlice'
 import productSlice from '../features/products/productSlice'
+import cartSlice from '../features/cart/cartSlice'
 
 
 const reducer = combineReducers({
      productSlice,
-     categorySlice
+     categorySlice,
+     cartSlice
     })
 
 
@@ -21,12 +23,3 @@ console.log(store.getState());
 
 export default store
 
-//import rootReducer from '../features/products/productSlice'
-// const store = configureStore({
-//     reducer: rootReducer
-// })
-
-// console.log(store.getState());
-// const store = configureStore({
-//     reducer: categorySlice
-// })

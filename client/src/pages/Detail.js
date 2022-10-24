@@ -14,6 +14,7 @@ import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
 import {useSelector, useDispatch } from 'react-redux'
 import {updateProducts} from '../features/products/productSlice'
+import {addToCart, updateCartQuantity, removeFromCart} from "../features/cart/cartSlice"
 
 function Detail() {
   const { id } = useParams();
@@ -25,9 +26,8 @@ function Detail() {
   const dispatch = useDispatch()
   const newProducts = useSelector((state) => state.productSlice.products)
   
-  //const { products, cart } = state;
-  // hardcoded cart, removed all cart aspects
-  const cart = 1;
+  const cart = useSelector((state) => state.cartSlice.cart)
+
   
   useEffect(() => {
     // already in global store
@@ -50,37 +50,35 @@ function Detail() {
     }
   }, [newProducts, data, loading, dispatch, id]);
 
-  // const addToCart = () => {
-  //   const itemInCart = cart.find((cartItem) => cartItem._id === id);
-  //   if (itemInCart) {
-  //     dispatch({
-  //       type: UPDATE_CART_QUANTITY,
-  //       _id: id,
-  //       purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-  //     });
-  //     idbPromise('cart', 'put', {
-  //       ...itemInCart,
-  //       purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-  //     });
-  //   } else {
-  //     dispatch({
-  //       type: ADD_TO_CART,
-  //       product: { ...currentProduct, purchaseQuantity: 1 },
-  //     });
-  //     idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
-  //   }
-  // };
+  const addToCart = () => {
+    console.log("clicked on Add")
+    // const itemInCart = cart.find((cartItem) => cartItem._id === id);
+    // if (itemInCart) {
+    //   dispatch({
+    //     type: UPDATE_CART_QUANTITY,
+    //     _id: id,
+    //     purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+    //   });
+    //   idbPromise('cart', 'put', {
+    //     ...itemInCart,
+    //     purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+    //   });
+    // } else {
+    //   dispatch({
+    //     type: ADD_TO_CART,
+    //     product: { ...currentProduct, purchaseQuantity: 1 },
+    //   });
+    //   idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
+    // }
+  };
 
-  // const removeFromCart = () => {
-  //   dispatch({
-  //     type: REMOVE_FROM_CART,
-  //     _id: currentProduct._id,
-  //   });
+  const removeFromCart = () => {
+    console.log("clicked")
+    //dispatch(removeFromCart(currentProduct._id));
 
-  //   idbPromise('cart', 'delete', { ...currentProduct });
-  // };
-  const addToCart = () => console.log("clicked")
-  const removeFromCart = () => console.log("clicked")
+    //idbPromise('cart', 'delete', { ...currentProduct });
+  };
+
 
   return (
     <>

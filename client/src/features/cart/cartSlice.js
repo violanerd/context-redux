@@ -40,7 +40,8 @@ const cartSlice = createSlice({
             state.cart = [];
             state.cartOpen = false
         },
-        toggleCart: (state, action) => {
+        toggleCart: (state) => {
+            console.log("toggle")
             state.cartOpen = !state.cartOpen
         }
     },

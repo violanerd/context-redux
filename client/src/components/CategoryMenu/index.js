@@ -17,7 +17,7 @@ function CategoryMenu() {
   const categories = useSelector((state) => state.categorySlice.categories)
   const dispatch = useDispatch()
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
-  console.log("categories", categories)
+  //console.log("categories", categories)
   useEffect(() => {
     if (categoryData) {
       dispatch(updateCategories(categoryData.categories));
@@ -34,7 +34,7 @@ function CategoryMenu() {
   const handleClick = (id) => {
     dispatch(updateCurrentCategory(id))
   };
-  console.log("categories", categories)
+  //console.log("categories", categories)
   return (
     <div>
       <h2>Choose a Category:</h2>
