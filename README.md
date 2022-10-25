@@ -8,7 +8,7 @@ On the project learning:
 * Comparing React Context API with Redux 
 
 Redux Implementation:
-* Store is in client/src/app/store.js
+* ```configureStore``` is in client/src/app/store.js
 * Slices built with ```createSlice``` in client/src/features...
 * Redux store implemented in client/src/index.js
 
