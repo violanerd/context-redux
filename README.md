@@ -20,7 +20,13 @@ npm i
 ~~~
 ## Usage
 
-Visit the project here: 
+Visit the project here: https://sleepy-dawn-82582.herokuapp.com/
+
+Signup or Login with the following fake user:
+> email: `eholt@testmail.com`
+>
+> password: `password12345`
+
 
 ![](./Redux.png)
 
