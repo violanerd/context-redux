@@ -7,6 +7,10 @@ On the project learning:
 * How to implement Redux
 * Comparing React Context API with Redux 
 
+Redux Implementation:
+* Store is in client/src/app/store.js
+* Slices built with ```createSlice``` in client/src/features...
+* Redux store implemented in client/src/index.js
 
 ## Table of Contents
 * [Installation](#installation)
@@ -28,7 +32,7 @@ Signup or Login with the following fake user:
 > password: `password12345`
 
 
-![](./Redux.png)
+![Example of my redux code for cart slice and the store](./Redux.png)
 
 ## Built With
 * MERN stack
