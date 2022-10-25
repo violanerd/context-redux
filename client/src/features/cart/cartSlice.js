@@ -8,7 +8,7 @@ const cartSlice = createSlice({
     },
     reducers: {
         addToCart: (state, action) => {
-            state.cart += action.payload;
+            state.cart = [...state.cart, action.payload];
             state.cartOpen = true
         },
         // will this work, just replace it??
@@ -26,15 +26,15 @@ const cartSlice = createSlice({
         },
         removeFromCart: (state, action) => {
             let newState = state.cart.filter(product => {
-                return product._id !== action.payload._id
+                return product._id !== action.payload
             })
             if (newState.length>0){
                 state.cart = newState
                 state.cartOpen = true
             } else {
                 state.cart = []
+                state.cartOpen = false
             }
-
         },
         clearCart: (state, action) => {
             state.cart = [];
@@ -47,5 +47,5 @@ const cartSlice = createSlice({
     },
 });
 
-export const {addMultipleToCart, updateCartQuantity, removeFromCart, clearCart, toggleCart} = cartSlice.actions
+export const {addToCart, addMultipleToCart, updateCartQuantity, removeFromCart, clearCart, toggleCart} = cartSlice.actions
 export default cartSlice.reducer
