@@ -5,8 +5,6 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
-//import { useStoreContext } from '../../utils/GlobalState';
-//import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import {useSelector, useDispatch } from 'react-redux'
 import {toggleCart, addMultipleToCart} from "../../features/cart/cartSlice"
 import './style.css';
@@ -17,7 +15,7 @@ const Cart = () => {
   const stateCart = useSelector((state) => state.cartSlice.cart)
   const cartOpen = useSelector((state) => state.cartSlice.cartOpen)
   const dispatch = useDispatch()
-  //const [state, dispatch] = useStoreContext();
+ 
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {
@@ -27,7 +25,7 @@ const Cart = () => {
       });
     }
   }, [data]);
-  console.log("stateCart", stateCart)
+
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');

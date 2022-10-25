@@ -11,9 +11,10 @@ const cartSlice = createSlice({
             state.cart = [...state.cart, action.payload];
             state.cartOpen = true
         },
-        // will this work, just replace it??
+        
         addMultipleToCart: (state, action) => {
-            state.cart = action.payload
+            state.cart = [...state.cart, ...action.payload]
+            state.cartOpen = true
         },
         updateCartQuantity: (state, action) => {
             state.cartOpen = true
@@ -41,7 +42,6 @@ const cartSlice = createSlice({
             state.cartOpen = false
         },
         toggleCart: (state) => {
-            console.log("toggle")
             state.cartOpen = !state.cartOpen
         }
     },
